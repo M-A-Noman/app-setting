@@ -1,0 +1,56 @@
+
+<div class="container">
+    <div class="logo">
+      <img src="../assets/logo/Tennant_logo.png" alt="" />
+    </div>
+    <div class="menu-items">
+      <ul class="menu">
+        <li *ngFor="let menu of menuItems">
+          {{ menu.menuButtonTitle }}
+          <span *ngIf="menu.subMenu.length>0">
+          <ul class="sub-menu">
+            <li *ngFor="let subMenu of menu.subMenu"> {{subMenu.subMenuButtonTitle}} </li>
+          </ul>
+        </span>
+        </li>
+      </ul>
+    </div>
+    <div class="alerts" #alertContainer>
+      <a (click)="toggleAlert()">
+        <fa-icon [icon]="icons.faBell"></fa-icon>
+        <span [ngClass]="'view'">Alerts</span>
+        <span class="badge">{{numberOfAlerts}}</span>
+      </a> 
+      <ul class="sub-menu" [ngClass]="isAlertOpen?'open':'' ">
+        <li *ngFor="let item of alertItems">{{item.alertItemName}}</li>
+      </ul>
+    </div>
+    <div class="profiles" #profileContainer>
+      <a (click)="toggleProfile()"><img src="../assets/logo/user_icon.png"> <span>{{userName}}</span></a>
+      <ul class="sub-menu" [ngClass]="isProfileOpen?'open':''">
+        <li *ngFor="let item of profileItems">{{item.profileItemName}}</li>
+      </ul>
+    </div>
+    <div class="toggle-button" (click)="toggleMenu()">
+      <fa-icon [icon]="icons.faBars"></fa-icon>
+    </div>
+    <div>
+    <!-- <span *ngIf="menuOpen" class="menuOpenIcon"> <fa-icon [icon]="icons.faSortUp"></fa-icon> </span> -->
+    <div class="dropdown_menu" *ngIf="menuOpen">
+          
+      <li *ngFor="let menu of menuItems" >
+            {{ menu.menuButtonTitle }}
+            <span *ngIf="menu.subMenu.length>0">
+            <ul class="sub-menu">
+              <li *ngFor="let subMenu of menu.subMenu"> {{subMenu.subMenuButtonTitle}} </li>
+            </ul>
+          </span>
+          </li>
+       <li class="profile"> <a (click)="toggleProfile()"><img src="../assets/logo/user_icon.png"> <span>{{userName}}</span></a>
+        <ul class="sub-menu" [ngClass]="isProfileOpen?'open':''">
+          <li *ngFor="let item of profileItems">{{item.profileItemName}}</li>
+        </ul></li>
+    
+    </div>
+  </div>
+</div>

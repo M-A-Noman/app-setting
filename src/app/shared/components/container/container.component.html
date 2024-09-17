@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="wrapper" *ngFor="let setting of singleSettings,let i=index" [ngStyle]="{'background-color':settingName[i]==='others'?'rgb(248, 248, 248)':''}">
+    <div class="sidebar">
+      <span class="label">{{ setting.label }}</span>
+      <span class="sub-label">{{ setting.subLabel }}</span>
+    </div>
+    <div class="setting-options" *ngIf="!isEmpty(setting)">
+      <span
+        *ngFor="
+          let settingOption of getSettings(setting)
+        "
+        >{{ createObjectTypeOption(setting[settingOption]) }}
+        <div class="settings">
+          <app-setting-option *ngIf="settingName[i]!=='email'"
+            [settingOptionObject]="settingOptionObject"
+          ></app-setting-option>
+          <app-custom-chips *ngIf="settingName[i]==='email'" [chips]="emails.email"></app-custom-chips>
+        </div>
+        <hr />
+      </span>
+    </div>
+  </div>
+  <div class="btn"><app-button [label]="'Apply Changes'" (click)="onSaveSettings()"></app-button></div>
+</div>

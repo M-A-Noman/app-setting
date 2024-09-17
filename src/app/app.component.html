@@ -1,0 +1,7 @@
+<!-- <div class="button-control"> -->
+  <!-- <button (click)="onClickSetting()" ><span *ngIf="isHome">Change setting</span><span *ngIf="!isHome">Back to home</span></button> -->
+ <app-header></app-header>
+ <!-- <app-custom-chips></app-custom-chips> -->
+<!-- </div> -->
+<router-outlet></router-outlet>
+<app-button (click)="onClickSetting()" [label]="isHome?'Change setting':'Back to home'"></app-button>

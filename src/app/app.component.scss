@@ -1,0 +1,19 @@
+.button-control{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    button{
+        background: rgb(0, 154, 216);
+        color: white;
+        padding: 1%;
+        width: 100%;
+        box-shadow: none;
+        border: none;
+        cursor: pointer;
+        border-radius: 3px;
+    }
+}
+
+app-header{
+    margin-top: 0 !important;
+}

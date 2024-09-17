@@ -1,0 +1,382 @@
+.container {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: min(2%,16px);
+
+    .logo {
+        max-width: 150px;
+
+        img {
+            width: 100%;
+            height: fit-content;
+        }
+    }
+
+    .profiles,
+    .menu-items {
+        display: none;
+    }
+
+    .menu-items {
+        .menu {
+            li {
+                position: relative; // For the submenu to be positioned correctly relative to the parent li
+                height: 20px;
+                padding: 5px;
+                cursor: pointer;
+
+                &:hover .sub-menu {
+                    display: block;
+                }
+
+
+            }
+        }
+    }
+
+    .sub-menu {
+        display: none;
+        position: absolute;
+        left: 0; // Align to left for the normal menu
+        top: 100%; // Show the submenu below the parent li
+        background-color: #fff; // Add a background for clarity
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional shadow for the submenu
+        padding: 10px;
+        list-style: none;
+        z-index: 10;
+        width: 100px;
+
+        li {
+            padding: 5px 10px;
+            white-space: nowrap; // Prevent text from wrapping in the submenu items
+        }
+    }
+
+
+    .open {
+        display: block !important;
+        //   left: -60px !important;
+    }
+
+    .toggle-button {
+        position: absolute;
+        left: 5%;
+        font-size: x-large;
+        color: rgb(117, 117, 117)
+    }
+
+    .alerts {
+        position: absolute;
+        right: 8%;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            align-items: center;
+            position: relative;
+            font-size: x-large;
+            color: rgb(117, 117, 117);
+            gap: 1%;
+
+            .badge {
+                position: absolute;
+                top: -4px;
+                /* Positioning the badge above the icon */
+                right: -22px;
+                /* Positioning the badge to the right of the icon */
+                background-color: rgb(250, 78, 87);
+                /* Badge background color */
+                color: rgb(255, 249, 249);
+                /* Badge text color */
+                border-radius: 50%;
+                /* Makes the badge round */
+                padding: 4px 6px;
+                /* Padding around the text */
+                font-size: 12px;
+                /* Font size for the number */
+                font-weight: bold;
+                line-height: 1;
+            }
+        }
+        
+    }
+
+    
+    .dropdown_menu {
+        position: absolute;
+        left: 5%;
+        top: 8%;
+        list-style: none;
+        width: 80%;
+        z-index: 10;
+        background: #c3c3c4;
+        color: rgb(72, 71, 71);
+        padding: 5%;
+
+        li {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 2%;
+            height: 30px;
+            cursor: pointer;
+            position: relative; // For positioning submenu
+
+            a {
+                display: flex;
+                align-items: center;
+                gap: 2%;
+                font-size: 1rem;
+                border: 1px solid rgb(186, 187, 188);
+                padding: 2%;
+                border-radius: 5px;
+
+                img {
+                    width: 25px;
+                }
+            }
+
+            // Sub-menu style for the general list items
+            .sub-menu {
+                display: none;
+                position: absolute;
+                left: 65%; // Align submenu fully to the right of the parent li
+                top: 0;
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 10px;
+                list-style: none;
+                z-index: 10;
+
+                li {
+                    padding: 5px 10px;
+                    white-space: nowrap;
+                }
+            }
+
+            &:hover .sub-menu {
+                display: block; // Show submenu on hover
+            }
+        }
+
+        // Special style for the profile menu
+        .profile {
+            position: relative; // To properly position the submenu relative to profile
+           
+            align-items: start;
+            // left: -20% !important;
+            .sub-menu {
+                left: min(70%,190px); // Position submenu to the right of the profile button
+                top: 0;
+                max-width: 100px; // Ensure there's enough width for the submenu
+                background-color: #fff;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding: 10px;
+                z-index: 20;
+
+                li {
+                    padding: 5px 10px;
+                    white-space: nowrap;
+                }
+            }
+        }
+    }
+
+    .view {
+        display: none;
+    }
+}
+
+@media (max-width:385px) {
+    .dropdown_menu {
+
+        top: 9% !important;
+    }
+}
+@media (max-width:768px) {
+    .alerts .sub-menu{
+        top: 20px !important;
+        left:-80px !important;
+    }
+}
+@media (min-width:500px) and (max-width:768px) {
+    .dropdown_menu {
+        // left: -10% !important;
+        width: 60% !important;
+
+        li {
+            align-items: start !important;
+            left: 20%;
+            .sub-menu {
+                left: min(25%,75px) !important;
+            }
+        }
+
+
+        .profile {
+          left: 0 !important;
+            .sub-menu {
+               
+                left: min(65%,200px) !important;
+            }
+        }
+    }
+}
+
+@media (min-width:769px) {
+
+    .dropdown_menu,
+    .toggle-button {
+        display: none;
+    }
+
+    .view {
+        display: inline-block !important;
+        padding-right: 5px;
+        margin-bottom: 8px;
+    }
+
+    .container {
+        width: 95%;
+        // padding-left: 0;
+        height: 30px !important;
+        margin-bottom: min(3%,10px);
+        margin-top: 0 !important;
+
+        display: grid;
+        grid-template-columns: repeat(10, 1fr);
+
+        justify-content: start;
+
+        .logo,
+        .alerts,
+        .menu-items,
+        .profiles {
+            display: grid !important;
+            position: relative;
+        }
+
+        .logo,
+        .alerts,
+        .profiles {
+            cursor: pointer;
+        }
+
+        .logo {
+            grid-column: 1/span 2;
+
+        }
+
+        .menu-items {
+            grid-column: 3/span 6;
+            width: 100%;
+            margin-left: -18px;
+            justify-self: start;
+
+            // padding-left: 0;
+            .menu {
+                list-style: none;
+                display: flex;
+                width: 95%;
+
+                li {
+
+                    justify-self: center;
+                    width: 100%;
+                }
+
+                ;
+            }
+
+        }
+
+        .alerts {
+            grid-column: 9/span 1;
+            right: 0;
+            justify-self: end;
+
+            // margin-left: 10px;
+            .view {
+                font-size: 1rem;
+            }
+        }
+
+        .profiles {
+            grid-column: 10/-1;
+            justify-self: end;
+
+            a {
+                span {
+                    display: none;
+                }
+
+                img {
+                    width: 25px;
+                }
+
+            }
+
+            .sub-menu {
+                width: 80px !important;
+                left: -60px !important;
+            }
+        }
+
+    }
+
+}
+
+@media (min-width:1024px) {
+    .container .profiles {
+        grid-column: 10/-1;
+        margin-left: 5px;
+
+        a {
+            span {
+                display: inline;
+            }
+
+            display: flex;
+            align-items: center;
+            width: 100%;
+            gap: 3px;
+            font-size: 1rem;
+            border: 1px solid rgb(186, 187, 188);
+            padding: min(10px, 3%);
+            // padding: 5%;
+            border-radius: 5px;
+
+            img {
+                width: 25px;
+            }
+
+        }
+
+        .sub-menu {
+            left: 0 !important;
+            width: 100px !important;
+        }
+    }
+
+    .container .alerts {
+        margin-right: 10px;
+        justify-self: center;
+    }
+}
+
+@media (min-width:1428px) {
+    .container .menu-items .menu {
+        width: 68%;
+    }
+
+    .container {
+
+        .alerts,
+        .profiles {
+            justify-self: start;
+        }
+    }
+}
