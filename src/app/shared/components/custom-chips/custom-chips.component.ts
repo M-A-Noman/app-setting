@@ -6,7 +6,7 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./custom-chips.component.scss']
 })
 export class CustomChipsComponent implements OnInit {
-  @Input() chips:string[]=['hello@gmail.com','abc@gmail.com'];
+  @Input() chips:string[]=[];
   chipInput:string='';
   constructor() { }
 

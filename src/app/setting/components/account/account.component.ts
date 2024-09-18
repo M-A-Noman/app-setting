@@ -8,7 +8,7 @@ import { singleSettingObject } from 'src/app/shared/models/setting.model';
 })
 export class AccountComponent implements OnInit {
 
-  accountObject:singleSettingObject={label:'Account setting',subLabel:'Applied to your profile'}
+  accountObject:singleSettingObject={label:'Account setting',subLabel:'Applied to your profile',highlighted:'false'}
   constructor() { }
 
   ngOnInit(): void {

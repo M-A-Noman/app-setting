@@ -27,11 +27,11 @@ export class SetupComponent implements OnInit ,OnDestroy{
   }
   fetchAllSettingsData() {
    
-    this.settingSubscription=this.settingService.getSettingData('data').subscribe((res)=>{
-      this.settingData=res;
-      this.settingKeys=this.settingService.getSettingsKeys(this.settingData);
-    })
-    this.settingService.getSettingData2('data2').subscribe((res)=>{
+    // this.settingSubscription=this.settingService.getSettingData('data').subscribe((res)=>{
+    //   this.settingData=res;
+    //   this.settingKeys=this.settingService.getSettingsKeys(this.settingData);
+    // })
+    this.settingService.getSettingData2('settings').subscribe((res)=>{
      
        this.settingData2=res;
       this.settingKeys2=this.settingService.getSettingsKeys(this.settingData2);

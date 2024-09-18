@@ -7,6 +7,7 @@ export interface singleSettingOption{
 export interface singleSettingObject{
     label:string ,
     subLabel:string,
+    highlighted:string,
     [setting:string]:singleSettingOption |string
 }
 export interface settingCategory{

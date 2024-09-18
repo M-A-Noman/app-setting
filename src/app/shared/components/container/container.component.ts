@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {  settingCategory, settings, singleSettingObject, singleSettingOption } from '../../models/setting.model';
 import { SettingService } from 'src/app/setting/services/setting.service';
 
@@ -8,7 +8,7 @@ import { SettingService } from 'src/app/setting/services/setting.service';
   styleUrls: ['./container.component.scss']
 })
 export class ContainerComponent implements OnInit {
-  @Input()singleSettingObject:singleSettingObject={label:'',subLabel:''};
+  @Input()singleSettingObject:singleSettingObject={label:'',subLabel:'',highlighted:'false'};
   @Input()settingName:string[]=[];
   @Input()singleSettings:singleSettingObject[]=[];
   @Input()settingObjectName:string='';
@@ -16,13 +16,12 @@ export class ContainerComponent implements OnInit {
   @Input()settingsObject:settingCategory={};
 
   emails:any={};
-  settingOptionObject:singleSettingOption={
-    label:'',
-    subLabel:'',
-    default:'',
-    option:[]
-  };
+  settingOptionObject:singleSettingOption[]=[];
+
+
   constructor(private settingService:SettingService) { }
+
+
 
   ngOnInit(): void {
     if(this.settingsObject){
@@ -35,15 +34,22 @@ export class ContainerComponent implements OnInit {
         if(key==='email'){
           this.isChips=true;
          this.emails=this.settingsObject[key];
+        //  console.log('emails are',this.emails)
         }
         this.singleSettings.push(this.settingsObject[key]);
       }
     }
   }
+  
   createObjectTypeOption(item:singleSettingOption|string){
+    let settingOptionSingleObject:singleSettingOption;
     if(typeof item !=='string'){
-      this.settingOptionObject= item;
+      settingOptionSingleObject= item;
+      // console.log('setting object for setting',name,'\n',this.settingOptionObject)
+    }else{
+      settingOptionSingleObject={label:'',subLabel:'',option:[],default:''};
     }
+    return settingOptionSingleObject;
      
   }
   isEmpty(obj:singleSettingObject){
@@ -86,7 +92,15 @@ export class ContainerComponent implements OnInit {
     let response =this.settingService.setSettingData(this.settingName[i],updatedSettingObject);
     response.subscribe((res)=>{console.log(res)})
   }
-  getSettings(singleSettingObject:singleSettingObject){
-    return this.settingService.getSettings(singleSettingObject)
+  getSettingsOptionObjects(singleSettingObject:singleSettingObject){
+    this.settingOptionObject=[];
+    let i=1;
+    for(let key of this.settingService.getSettings(singleSettingObject)){
+      // console.log('index is',i++,'\nkey of the object',key,'setting Object is ',singleSettingObject[key],'\ncreated object is',this.createObjectTypeOption(singleSettingObject[key]))
+        this.settingOptionObject.push(this.createObjectTypeOption(singleSettingObject[key]))
+    }
+    // console.log('setting option object',this.settingOptionObject)
+    return this.settingOptionObject
   }
+  
 }

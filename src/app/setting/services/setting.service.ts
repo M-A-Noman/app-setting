@@ -17,7 +17,7 @@ export class SettingService {
   }
 
   setSettingData(endPoint:string,settingObject:settings){
-    return this.http.patch<singleSettingObject>(`${environment.BASE_URL}/data2`,settingObject,{ headers: { 'Content-Type': 'application/json' } });
+    return this.http.patch<singleSettingObject>(`${environment.BASE_URL}/settings`,settingObject,{ headers: { 'Content-Type': 'application/json' } });
   }
   getSettingsKeys(settingData:settingCategory|singleSettingObject|settings){
     return Object.keys(settingData);
@@ -25,7 +25,7 @@ export class SettingService {
 
   getSettings(singleSettingObject:singleSettingObject){
     // console.log(settingName)
-    return Object.keys(singleSettingObject).filter(key=>key!=='label'&&key!=='subLabel');
+    return Object.keys(singleSettingObject).filter(key=>key!=='label'&&key!=='subLabel'&&key !=='highlighted');
     // return Object.keys(settingData[settingName]).filter(key=>key!=='label'&&key!=='subLabel');
   }
 }

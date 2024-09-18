@@ -42,16 +42,11 @@
 
 @media (min-width:481px) {
     .container {
-        max-width: min(700px,90%);
+        max-width: min(1000px,90%);
         display: flex;
       
         flex-direction: column;
-        // align-content: center;
-        // align-items: center;
-        // justify-items: center;
-        // justify-content: center;
-        // justify-self: center;
-        // align-self: center;
+        
        margin: 2% auto;
     
        gap: 0 !important;
