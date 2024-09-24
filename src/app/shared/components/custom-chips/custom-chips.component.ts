@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { faX } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-custom-chips',
@@ -8,6 +9,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CustomChipsComponent implements OnInit {
   @Input() chips:string[]=[];
   chipInput:string='';
+  faX=faX;
   constructor() { }
 
   ngOnInit(): void {

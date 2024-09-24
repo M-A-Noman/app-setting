@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: min(2%,16px);
+    padding: min(2%, 16px);
 
     .logo {
         max-width: 150px;
@@ -101,10 +101,10 @@
                 line-height: 1;
             }
         }
-        
+
     }
 
-    
+
     .dropdown_menu {
         position: absolute;
         left: 0;
@@ -115,6 +115,15 @@
         background: #EBEEF4;
         color: rgb(72, 71, 71);
         padding: 5%;
+
+        .menu {
+            border-bottom: 1px solid rgb(174, 174, 174);
+
+            :last-child {
+                border-bottom: none !important;
+            }
+        }
+       
 
         li {
             display: flex;
@@ -139,11 +148,12 @@
                 }
             }
 
-            // Sub-menu style for the general list items
+
+            
             .sub-menu {
                 display: none;
                 position: absolute;
-                left: 65%; // Align submenu fully to the right of the parent li
+                left: 60%; 
                 top: 0;
                 background-color: #fff;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -154,6 +164,7 @@
                 li {
                     padding: 5px 10px;
                     white-space: nowrap;
+                    
                 }
             }
 
@@ -162,24 +173,25 @@
             }
         }
 
-        // Special style for the profile menu
         .profile {
-            position: relative; // To properly position the submenu relative to profile
-           
+            position: relative;
+
             align-items: start;
-            // left: -20% !important;
+
             .sub-menu {
-                left: min(70%,190px); // Position submenu to the right of the profile button
+                left: min(65%, 210px);
                 top: 0;
-                max-width: 100px; // Ensure there's enough width for the submenu
+                max-width: 100px;
                 background-color: #fff;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 padding: 10px;
                 z-index: 20;
+                border-bottom: none;
 
                 li {
                     padding: 5px 10px;
                     white-space: nowrap;
+                   
                 }
             }
         }
@@ -198,13 +210,13 @@
 }
 
 @media (max-width:768px) {
-    .alerts .sub-menu{
+    .alerts .sub-menu {
         top: 20px !important;
-        left:-80px !important;
+        left: -80px !important;
+        z-index: 20 !important;
+        
     }
-    // .dropdown_menu{
-    //     top:20% !important;
-    // }
+
 }
 
 
@@ -225,7 +237,7 @@
         width: 95%;
         // padding-left: 0;
         height: 30px !important;
-        margin-bottom: min(3%,10px);
+        margin-bottom: min(3%, 10px);
         margin-top: 0 !important;
 
         display: grid;
@@ -363,3 +375,343 @@
         }
     }
 }
+
+
+// $gray-color: rgb(117, 117, 117);
+// $badge-bg-color: rgb(250, 78, 87);
+// $badge-text-color: rgb(255, 249, 249);
+// $border-color: rgb(186, 187, 188);
+// $font-large: x-large;
+// $padding-sm: 4px;
+// $padding-md: 10px;
+// $shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+// @mixin button-style($bg-color: $gray-color, $text-color: #fff) {
+//     background-color: $bg-color;
+//     color: $text-color;
+//     border: 1px solid $border-color;
+//     padding: $padding-sm;
+//     border-radius: 5px;
+//     font-size: 1rem;
+//     cursor: pointer;
+// }
+
+// @mixin sub-menu-styles($left-position: 0) {
+//     display: none;
+//     position: absolute;
+//     left: $left-position;
+//     top: 100%;
+//     background-color: #fff;
+//     box-shadow: $shadow;
+//     padding: $padding-md;
+//     list-style: none;
+//     z-index: 10;
+//     li {
+//         padding: 5px 10px;
+//         white-space: nowrap;
+//     }
+// }
+
+// @mixin respond-to($breakpoint) {
+//   @if $breakpoint == small {
+//     @media (max-width: 385px) { @content; }
+//   }
+//   @if $breakpoint == medium {
+//     @media (max-width: 768px) { @content; }
+//   }
+//   @if $breakpoint == large {
+//     @media (min-width: 769px) { @content; }
+//   }
+//   @if $breakpoint == xlarge {
+//     @media (min-width: 1024px) { @content; }
+//   }
+//   @if $breakpoint == xxlarge {
+//     @media (min-width: 1428px) { @content; }
+//   }
+// }
+
+// .flex-center {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+// .flex-column-center {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+// }
+
+// .container {
+//     @extend .flex-center;
+//     padding: min(2%, 16px);
+
+//     .logo {
+//         max-width: 150px;
+//         img {
+//             width: 100%;
+//             height: fit-content;
+//         }
+//     }
+
+//     .profiles,
+//     .menu-items {
+//         @extend .flex-column-center;
+//         display: none;
+//     }
+
+//     .menu-items {
+//         .menu {
+//             li {
+//                 position: relative;
+//                 height: 20px;
+//                 padding: 5px;
+//                 cursor: pointer;
+//                 &:hover .sub-menu {
+//                     display: block;
+//                 }
+//             }
+//         }
+//     }
+
+//     .sub-menu {
+//         @include sub-menu-styles(0);
+//     }
+
+//     .open {
+//         display: block !important;
+//     }
+
+//     .toggle-button {
+//         position: absolute;
+//         left: 5%;
+//         font-size: $font-large;
+//         color: $gray-color;
+//     }
+
+//     .alerts {
+//         position: absolute;
+//         right: 8%;
+
+//         a {
+//             text-decoration: none;
+//             color: inherit;
+//             display: flex;
+//             align-items: center;
+//             position: relative;
+//             font-size: $font-large;
+//             color: $gray-color;
+//             gap: 1%;
+
+//             .badge {
+//                 position: absolute;
+//                 top: -4px;
+//                 right: -22px;
+//                 background-color: $badge-bg-color;
+//                 color: $badge-text-color;
+//                 border-radius: 50%;
+//                 padding: $padding-sm 6px;
+//                 font-size: 12px;
+//                 font-weight: bold;
+//                 line-height: 1;
+//             }
+//         }
+//     }
+
+//     .dropdown_menu {
+//         position: absolute;
+//         left: 0;
+//         top: 100px;
+//         list-style: none;
+//         width: 90%;
+//         z-index: 10;
+//         background: #EBEEF4;
+//         color: rgb(72, 71, 71);
+//         padding: 5%;
+
+//         .menu {
+//             border-bottom: 1px solid rgb(174, 174, 174);
+//             &:last-child {
+//                 border-bottom: none !important;
+//             }
+//         }
+
+//         li {
+//             @extend .flex-column-center;
+//             margin: 2%;
+//             height: 30px;
+//             cursor: pointer;
+
+//             a {
+//                 @include button-style();
+//                 display: flex;
+//                 align-items: center;
+//                 gap: 2%;
+
+//                 img {
+//                     width: 25px;
+//                 }
+//             }
+
+//             .sub-menu {
+//                 @include sub-menu-styles(65%);
+//             }
+
+//             &:hover .sub-menu {
+//                 display: block;
+//             }
+//         }
+
+//         .profile {
+//             .sub-menu {
+//                 @include sub-menu-styles(min(70%, 190px));
+//             }
+//         }
+//     }
+
+//     .view {
+//         display: none;
+//     }
+// }
+
+// @include respond-to(small) {
+//     .dropdown_menu {
+//         top: 9% !important;
+//     }
+// }
+
+// @include respond-to(medium) {
+//     .alerts .sub-menu {
+//         top: 20px !important;
+//         left: -80px !important;
+//         z-index: 20 !important;
+//     }
+// }
+
+// @include respond-to(large) {
+//     .dropdown_menu,
+//     .toggle-button {
+//         display: none;
+//     }
+
+//     .view {
+//         display: inline-block !important;
+//         padding-right: 5px;
+//         margin-bottom: 8px;
+//     }
+
+//     .container {
+//         width: 95%;
+//         height: 30px !important;
+//         margin-bottom: min(3%, 10px);
+//         margin-top: 0 !important;
+
+//         display: grid;
+//         grid-template-columns: repeat(10, 1fr);
+//         justify-content: start;
+
+//         .logo,
+//         .alerts,
+//         .menu-items,
+//         .profiles {
+//             display: grid !important;
+//             position: relative;
+//         }
+
+//         .logo {
+//             grid-column: 1/span 2;
+//         }
+
+//         .menu-items {
+//             grid-column: 3/span 6;
+//             width: 100%;
+//             margin-left: -18px;
+//             justify-self: start;
+//             .menu {
+//                 list-style: none;
+//                 display: flex;
+//                 width: 95%;
+//                 li {
+//                     justify-self: center;
+//                     width: 100%;
+//                 }
+//             }
+//         }
+
+//         .alerts {
+//             grid-column: 9/span 1;
+//             right: 0;
+//             justify-self: end;
+
+//             .view {
+//                 font-size: 1rem;
+//             }
+//         }
+
+//         .profiles {
+//             grid-column: 10/-1;
+//             justify-self: end;
+
+//             a {
+//                 span {
+//                     display: none;
+//                 }
+
+//                 img {
+//                     width: 25px;
+//                 }
+//             }
+
+//             .sub-menu {
+//                 width: 80px !important;
+//                 left: -60px !important;
+//             }
+//         }
+//     }
+// }
+
+// @include respond-to(xlarge) {
+//     .container .profiles {
+//         grid-column: 10/-1;
+//         margin-left: 5px;
+
+//         a {
+//             span {
+//                 display: inline;
+//             }
+
+//             display: flex;
+//             align-items: center;
+//             width: 100%;
+//             gap: 3px;
+//             @include button-style($border-color, $gray-color);
+
+//             img {
+//                 width: 25px;
+//             }
+//         }
+
+//         .sub-menu {
+//             left: 0 !important;
+//             width: 100px !important;
+//         }
+//     }
+
+//     .container .alerts {
+//         margin-right: 10px;
+//         justify-self: center;
+//     }
+// }
+
+// @include respond-to(xxlarge) {
+//     .container .menu-items .menu {
+//         width: 68%;
+//     }
+
+//     .container {
+//         .alerts,
+//         .profiles {
+//             justify-self: start;
+//         }
+//     }
+// }

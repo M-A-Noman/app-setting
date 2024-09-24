@@ -1,7 +1,7 @@
 <div class="chip-container">
     <div *ngFor="let chip of chips;let i=index" class="chip">
          {{chip}} 
-         <span class="close-btn" (click)="removeChip(i)">&#10005;</span>
+         <span class="close-btn" (click)="removeChip(i)"><fa-icon [icon]="faX"></fa-icon> </span>
     </div>
     <input
     [(ngModel)]="chipInput"

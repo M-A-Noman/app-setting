@@ -9,15 +9,12 @@ import { forkJoin, Subscription } from 'rxjs';
   styleUrls: ['./setup.component.scss']
 })
 export class SetupComponent implements OnInit ,OnDestroy{
+   
    settingKeys:string[]=[
     
   ];
-   settingKeys2:string[]=[
-    
-  ];
   settingSubscription:Subscription=new Subscription();
-  settingData:settingCategory={};
-  settingData2:settings={};
+  settingData:settings={};
   settingDataObjects:singleSettingObject[]=[];
   constructor(public settingService:SettingService) { }
 
@@ -27,14 +24,10 @@ export class SetupComponent implements OnInit ,OnDestroy{
   }
   fetchAllSettingsData() {
    
-    // this.settingSubscription=this.settingService.getSettingData('data').subscribe((res)=>{
-    //   this.settingData=res;
-    //   this.settingKeys=this.settingService.getSettingsKeys(this.settingData);
-    // })
     this.settingService.getSettingData2('settings').subscribe((res)=>{
      
-       this.settingData2=res;
-      this.settingKeys2=this.settingService.getSettingsKeys(this.settingData2);
+       this.settingData=res;
+      this.settingKeys=this.settingService.getSettingsKeys(this.settingData);
      
     });
   }

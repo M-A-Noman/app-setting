@@ -23,7 +23,7 @@
             "2 miles",
             "5 miles"
           ],
-          "default": "0.5 mile"
+          "default": "1 mile"
         },
         "noCharge": {
           "label": "No Charge Alert",
@@ -32,7 +32,7 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "Off"
         },
         "opportunityCharge": {
           "label": "Opportunity Charge Alert",

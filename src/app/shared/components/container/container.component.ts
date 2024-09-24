@@ -8,12 +8,12 @@ import { SettingService } from 'src/app/setting/services/setting.service';
   styleUrls: ['./container.component.scss']
 })
 export class ContainerComponent implements OnInit {
-  @Input()singleSettingObject:singleSettingObject={label:'',subLabel:'',highlighted:'false'};
-  @Input()settingName:string[]=[];
-  @Input()singleSettings:singleSettingObject[]=[];
   @Input()settingObjectName:string='';
-  @Input()isChips:boolean=false;
   @Input()settingsObject:settingCategory={};
+
+  settingName:string[]=[];
+  singleSettings:singleSettingObject[]=[];
+  isChips:boolean=false;
 
   emails:any={};
   settingOptionObject:singleSettingOption[]=[];
@@ -22,20 +22,18 @@ export class ContainerComponent implements OnInit {
   constructor(private settingService:SettingService) { }
 
 
-
   ngOnInit(): void {
     if(this.settingsObject){
       
       this.settingName=this.settingService.getSettingsKeys(this.settingsObject);
      
       for(let key of this.settingName){
-        // console.log(this.settingsObject[key]);
-        // let setting:singleSettingObject=this.settingsObject[key];
+        
         if(key==='email'){
           this.isChips=true;
          this.emails=this.settingsObject[key];
-        //  console.log('emails are',this.emails)
         }
+       
         this.singleSettings.push(this.settingsObject[key]);
       }
     }
@@ -96,10 +94,9 @@ export class ContainerComponent implements OnInit {
     this.settingOptionObject=[];
     let i=1;
     for(let key of this.settingService.getSettings(singleSettingObject)){
-      // console.log('index is',i++,'\nkey of the object',key,'setting Object is ',singleSettingObject[key],'\ncreated object is',this.createObjectTypeOption(singleSettingObject[key]))
+      
         this.settingOptionObject.push(this.createObjectTypeOption(singleSettingObject[key]))
     }
-    // console.log('setting option object',this.settingOptionObject)
     return this.settingOptionObject
   }
   
