@@ -2,8 +2,8 @@ import { Component, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SettingComponent } from './setting.component';
 import { RouterModule, Routes } from '@angular/router';
-import { AccountComponent } from './components/account/account.component';
-import { SetupComponent } from './components/setup/setup.component';
+import { AccountComponent } from './account/account.component';
+import { SetupComponent } from './setup/setup.component';
 
 const routes: Routes = [
   {
@@ -12,11 +12,11 @@ const routes: Routes = [
     children: [
       {
         path: 'account',
-        component: AccountComponent
+        loadChildren:()=>import('./account/account.module').then((m)=>m.AccountModule)
       },
       {
         path: 'setup',
-        component: SetupComponent
+        loadChildren:()=>import('./setup/setup.module').then((m)=>m.SetupModule)
       },
       {
         path: '',

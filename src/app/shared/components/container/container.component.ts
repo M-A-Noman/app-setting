@@ -43,7 +43,6 @@ export class ContainerComponent implements OnInit {
     let settingOptionSingleObject:singleSettingOption;
     if(typeof item !=='string'){
       settingOptionSingleObject= item;
-      // console.log('setting object for setting',name,'\n',this.settingOptionObject)
     }else{
       settingOptionSingleObject={label:'',subLabel:'',option:[],default:''};
     }

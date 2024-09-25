@@ -5,10 +5,12 @@
         "label": "EMAIL ADDRESS TO COPY",
         "subLabel": "",
         "highlighted": "false",
-        "email": [
-          "abc@gmail.com",
-          "hello@gmail.com"
-        ]
+        "emails": {
+          "label":"Email",
+          "subLabel":"",
+          "option":["abc@gmail.com","hello@gmail.com"],
+          "default":""
+        }
       },
       "general": {
         "label": "GENERAL ALERTS",
@@ -23,7 +25,7 @@
             "2 miles",
             "5 miles"
           ],
-          "default": "1 mile"
+          "default": "0.5 mile"
         },
         "noCharge": {
           "label": "No Charge Alert",
@@ -93,7 +95,7 @@
             "On",
             "Off"
           ],
-          "default": "Off"
+          "default": "On"
         },
         "serviceRequest": {
           "label": "Service Request",
@@ -111,7 +113,7 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "Off"
         }
       }
     },
@@ -161,9 +163,12 @@
         "label": "EMAIL ADDRESS TO COPY",
         "subLabel": "",
         "highlighted": "false",
-        "email": [
-          "abc@gmail.com"
-        ]
+        "emails": {
+          "label":"Email",
+          "subLabel":"",
+          "option":["abc@gmail.com","hello@gmail.com"],
+          "default":""
+        }
       },
       "reports": {
         "label": "REPORTS",
@@ -187,7 +192,7 @@
             "Monthly",
             "Quarterly"
           ],
-          "default": "Weekly"
+          "default": "Monthly"
         }
       }
     }

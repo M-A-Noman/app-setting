@@ -7,9 +7,11 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ButtonComponent implements OnInit {
   @Input('label')buttonLabel:string=''
+  @Input()disabled:boolean=false;
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(this.disabled)
   }
 
 }

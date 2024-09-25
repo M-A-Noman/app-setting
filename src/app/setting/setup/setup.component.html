@@ -1,0 +1,55 @@
+<!-- <ng-container *ngFor="let key of settingKeys; let i = index">
+  <app-container
+    [settingsObject]="settingData[key]"
+    [settingObjectName]="key"
+  ></app-container>
+</ng-container> -->
+
+<ng-container *ngFor="let mainObject of settingData | keyvalue : originalOrder">
+  <div class="container">
+    <div
+      class="wrapper"
+      *ngFor="let setting of mainObject.value | keyvalue : originalOrder"
+      [ngClass]="{ highlighted: setting.value.highlighted === 'true' }"
+    >
+      <div class="sidebar">
+        <span class="label">{{ setting.value.label }}</span>
+        <span class="sub-label">{{ setting.value.subLabel }}</span>
+      </div>
+      <div class="setting-options">
+        <ng-container
+          *ngFor="let settingOption of setting.value | keyvalue : originalOrder"
+        >
+          <ng-container *ngIf="isValidOption(settingOption.value)"
+            >
+            <ng-container *ngIf="isEmail(settingOption.value)">
+              <div class="settings">
+                <app-setting-option
+                  [settingOptionObject]="
+                    getSettingOptionObject(settingOption.value)
+                  "
+                  (change)="onSettingChange(mainObject.key)"
+                ></app-setting-option>
+              </div>
+              <hr />
+            </ng-container>
+
+            <ng-container *ngIf="!isEmail(settingOption.value)">
+              <app-custom-chips
+                [chips]="getEmail(settingOption.value)"
+                (change)="onSettingChange(mainObject.key)"
+              ></app-custom-chips>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+    <div class="btn">
+      <app-button
+        [label]="'Apply Changes'"
+        (click)="onSaveSettings(mainObject.value, mainObject.key)"
+        [disabled]="!isChangedMap[mainObject.key]"
+      ></app-button>
+    </div>
+  </div>
+</ng-container>

@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomChipsComponent } from './components/custom-chips/custom-chips.component';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     SettingOptionComponent,
     HeaderComponent,
     CustomChipsComponent,
+    FooterComponent,
     
   ],
   imports: [
@@ -30,6 +32,8 @@ import { FormsModule } from '@angular/forms';
     SettingOptionComponent,
     HeaderComponent,
     CustomChipsComponent,
+    FooterComponent,
+
     FontAwesomeModule
   ],
 })

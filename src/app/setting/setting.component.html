@@ -1,7 +1,7 @@
 <nav>
   <ul>
-    <li [ngClass]="{ 'active': currentTab === 'account' }" (click)="setTab('account')">Account</li>
-    <li [ngClass]="{ 'active': currentTab === 'setup' }" (click)="setTab('setup')">Set-Up</li>
+    <li [ngClass]="{ 'active': currentTab === 'account' }" routerLink="/account" (click)="setTab('account')">Account</li>
+    <li [ngClass]="{ 'active': currentTab === 'setup' }" routerLink="/setup" (click)="setTab('setup')">Set-Up</li>
   </ul>
 </nav>
 

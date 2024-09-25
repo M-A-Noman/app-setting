@@ -1,18 +1,26 @@
-.button-control{
+.button-control {
     width: 100%;
     margin-top: 1rem;
     display: flex;
     justify-content: end;
-    
-button{
-    background: rgb(0, 154, 216);
-    color: white;
-    padding: 5%;
-    width: 100%;
-    box-shadow: none;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin: 0.75rem;
-}
-}
+  
+    button {
+      background: rgb(0, 154, 216);
+      color: white;
+      padding: 5%;
+      width: 100%;
+      box-shadow: none;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      margin: 0.75rem;
+      transition: background-color 0.3s ease, color 0.3s ease; /* Add transition for smooth effect */
+  
+      &:disabled {
+        background: rgb(95, 200, 241); /* Grayish background when disabled */
+        color: rgb(241, 239, 239); /* Dimmed text color */
+        cursor: not-allowed; /* Change cursor to indicate it's disabled */
+      }
+    }
+  }
+  

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingService } from './services/setting.service';
 import { settingCategory } from '../shared/models/setting.model';
-import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-setting',
@@ -9,14 +9,15 @@ import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
   styleUrls: ['./setting.component.scss']
 })
 export class SettingComponent  implements OnInit{
-  currentTab: string = ''; // Set default tab
-  constructor(private router:Router,private route:ActivatedRoute){}
+  currentTab: string = ''; 
+  constructor(private router:Router){}
   ngOnInit(): void {
-    this.currentTab=(this.route.snapshot.firstChild?.url[0].path) as string;
+    this.currentTab=this.router.url;
+    this.currentTab=this.currentTab.slice(1);
+    
   }
   setTab(tab: string): void {
     this.currentTab = tab;
-    this.router.navigate([`setting/${tab}`],)
   }
 
   
