@@ -6,7 +6,7 @@ import { SettingOptionComponent } from './components/setting-option/setting-opti
 import { HeaderComponent } from './components/header/header.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CustomChipsComponent } from './components/custom-chips/custom-chips.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './components/footer/footer.component';
 
 
@@ -24,7 +24,8 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     CommonModule,
     FormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   exports:[
     ButtonComponent,
@@ -34,6 +35,8 @@ import { FooterComponent } from './components/footer/footer.component';
     CustomChipsComponent,
     FooterComponent,
 
+    CommonModule,
+    ReactiveFormsModule,
     FontAwesomeModule
   ],
 })

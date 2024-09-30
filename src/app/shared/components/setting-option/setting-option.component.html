@@ -1,4 +1,4 @@
-<div class="single-setting">
+<!-- <div class="single-setting">
     <span class="setting-label">
         <span class="label">{{settingOptionObject.label}}</span>
         <span class="sub-label">{{settingOptionObject.subLabel}}</span>
@@ -8,4 +8,19 @@
           {{ option }}
         </option>
       </select>
+</div> -->
+
+<form [formGroup]="settingOptionFormGroup">
+
+<div class="single-setting">
+    <span class="setting-label">
+        <span class="label">{{settingOptionFormGroup['value'].label}}</span>
+        <span class="sub-label">{{settingOptionFormGroup['value'].subLabel}}</span>
+    </span>
+    <select formControlName="default">
+        <option  *ngFor="let option of settingOptionFormGroup['value'].option" [selected]="option === settingOptionFormGroup['value'].default " [value]="option">
+          {{ option }}
+        </option>
+      </select>
 </div>
+</form>

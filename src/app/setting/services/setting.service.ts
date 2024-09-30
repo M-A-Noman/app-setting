@@ -9,10 +9,8 @@ import { environment } from 'src/environments/environment';
 export class SettingService {
 
   constructor(private http:HttpClient) { }
+  
   getSettingData(endPoint:string){
-     return this.http.get<settingCategory>(`${environment.BASE_URL}/${endPoint}`)
-  }
-  getSettingData2(endPoint:string){
      return this.http.get<settings>(`${environment.BASE_URL}/${endPoint}`)
   }
 

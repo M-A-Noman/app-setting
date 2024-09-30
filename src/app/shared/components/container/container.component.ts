@@ -44,7 +44,7 @@ export class ContainerComponent implements OnInit {
     if(typeof item !=='string'){
       settingOptionSingleObject= item;
     }else{
-      settingOptionSingleObject={label:'',subLabel:'',option:[],default:''};
+      settingOptionSingleObject={label:'',subLabel:'',option:[],default:'',isContainEmail:false};
     }
     return settingOptionSingleObject;
      

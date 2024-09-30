@@ -2,18 +2,19 @@ export interface singleSettingOption{
     label:string,
     subLabel:string,
     option:string[],
-    default:string
+    default:string,
+    isContainEmail:boolean
 }
 export interface singleSettingObject{
     label:string ,
     subLabel:string,
     highlighted:string,
-    [setting:string]:singleSettingOption |string
+    [key:string]:singleSettingOption |string
 }
 export interface settingCategory{
-    [categoryName:string]:singleSettingObject 
+    [key:string]:singleSettingObject 
 }
 export interface settings{
-    [categoryName:string]:settingCategory 
+    [key:string]:settingCategory 
 }
 

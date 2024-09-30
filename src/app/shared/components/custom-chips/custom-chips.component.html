@@ -1,12 +1,25 @@
-<div class="chip-container">
-    <div *ngFor="let chip of chips;let i=index" class="chip">
-         {{chip}} 
-         <span class="close-btn" (click)="removeChip(i)"><fa-icon [icon]="faX"></fa-icon> </span>
+<form [formGroup]="customChipsFormGroup">
+    <div class="chip-container" >
+      <div *ngFor="let chip of customChipsFormGroup.value.option; let i = index" class="chip">
+        {{ chip }}
+        <span class="close-btn" (click)="removeChip(i)">
+          <fa-icon [icon]="faX"></fa-icon>
+        </span>
+      </div>
+  
+      <div class="input-container">
+        <input
+          formControlName="default"
+          (keydown.enter)="addChip()"
+          [placeholder]="customChipsFormGroup.value.option.length ? '' : 'Add an email'"
+          class="chip-input"
+          [ngClass]="customChipsFormGroup.get('default')?.hasError('invalidEmail') && customChipsFormGroup.dirty && customChipsFormGroup.get('default').value.length > 0 ? 'error-input' : ''"
+        />
+  
+        <div *ngIf="customChipsFormGroup.get('default')?.hasError('invalidEmail') && customChipsFormGroup.dirty && customChipsFormGroup.get('default').value.length > 0">
+          <small class="error">Please enter a valid email.</small>
+        </div>
+      </div>
     </div>
-    <input
-    [(ngModel)]="chipInput"
-    (keydown.enter)="addChip()"
-    [placeholder]="chips.length?'':'Add an email'"
-    class="chip-input"
-    />
-</div>
+  </form>
+  

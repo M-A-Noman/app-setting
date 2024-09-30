@@ -17,7 +17,6 @@ import { AccountModule } from './account/account.module';
 
   ],
   imports: [
-    CommonModule,
     SettingRoutingModule,
     SharedModule,
     HttpClientModule,

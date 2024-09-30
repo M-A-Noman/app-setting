@@ -1,40 +1,64 @@
+$primary-bg-color: #F0F0F0;
+$chip-bg-color: #FAFAFA;
+$text-color: #6D6E71;
+$error-color: red;
+$input-border-color: red;
+$chip-padding: 0 12px;
+$chip-height: 32px;
+$input-padding: 0 8px;
+$gap: 8px;
+
 .chip-container {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-    background:#F0F0F0;
-    padding: 5px;
-    margin-top: 3%;
-  }
-  
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $gap;
+  background: $primary-bg-color;
+  padding: 5px;
+  margin-top: 3%;
+
   .chip {
     display: inline-flex;
     align-items: center;
-    padding: 0 12px;
-    height: 32px;
-    background-color: #FAFAFA;
+    padding: $chip-padding;
+    height: $chip-height;
+    background-color: $chip-bg-color;
     border-radius: 5px;
     font-size: 14px;
-    color: #6D6E71;
+    color: $text-color;
     user-select: none;
-  
+
     .close-btn {
       cursor: pointer;
-      margin-left: 8px;
+      margin-left: $gap;
       font-size: 16px;
       font-weight: bold;
-      // line-height: 1;
     }
   }
-  
-  .chip-input {
-    border: none;
-    outline: none;
-    padding: 0 8px;
-    height: 32px;
-    font-size: 14px;
+
+  .input-container {
+    display: flex;
+    flex-direction: column;
     min-width: 120px;
-    background-color: transparent;
+
+    .chip-input {
+      border: none;
+      outline: none;
+      padding: $input-padding;
+      height: $chip-height;
+      font-size: 14px;
+      background-color: transparent;
+
+      &.error-input {
+        border: 1px solid $input-border-color;
+        border-radius: 4px;
+      }
+    }
+
+    .error {
+      color: $error-color;
+      margin-top: 4px; // spacing between input and error message
+      font-size: 12px;
+    }
   }
-  
+}

@@ -6,10 +6,14 @@
         "subLabel": "",
         "highlighted": "false",
         "emails": {
-          "label":"Email",
-          "subLabel":"",
-          "option":["abc@gmail.com","hello@gmail.com"],
-          "default":""
+          "label": "Email",
+          "subLabel": "",
+          "option": [
+            "abc@gmail.com",
+            "hello@gmail.com"
+          ],
+          "default": "",
+          "isContainEmail": true
         }
       },
       "general": {
@@ -25,7 +29,8 @@
             "2 miles",
             "5 miles"
           ],
-          "default": "0.5 mile"
+          "default": "0.5 mile",
+          "isContainEmail": false
         },
         "noCharge": {
           "label": "No Charge Alert",
@@ -34,7 +39,8 @@
             "On",
             "Off"
           ],
-          "default": "Off"
+          "default": "Off",
+          "isContainEmail": false
         },
         "opportunityCharge": {
           "label": "Opportunity Charge Alert",
@@ -43,7 +49,8 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "On",
+          "isContainEmail": false
         },
         "chargerError": {
           "label": "Charger Error",
@@ -52,7 +59,8 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "On",
+          "isContainEmail": false
         },
         "impactDetected": {
           "label": "Impact Detected",
@@ -61,7 +69,8 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "On",
+          "isContainEmail": false
         },
         "noCommunication": {
           "label": "No Communication",
@@ -72,7 +81,8 @@
             "7 days",
             "14 days"
           ],
-          "default": "7 days"
+          "default": "7 days",
+          "isContainEmail": false
         },
         "maintenanceReminder": {
           "label": "Maintenance Reminder",
@@ -81,7 +91,8 @@
             "On",
             "Off"
           ],
-          "default": "Off"
+          "default": "Off",
+          "isContainEmail": false
         }
       },
       "others": {
@@ -95,7 +106,8 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "On",
+          "isContainEmail": false
         },
         "serviceRequest": {
           "label": "Service Request",
@@ -104,7 +116,8 @@
             "On",
             "Off"
           ],
-          "default": "On"
+          "default": "On",
+          "isContainEmail": false
         },
         "ABWtankEmpty": {
           "label": "ABW Tank Empty",
@@ -113,7 +126,8 @@
             "On",
             "Off"
           ],
-          "default": "Off"
+          "default": "Off",
+          "isContainEmail": false
         }
       }
     },
@@ -132,7 +146,8 @@
             "4 hr",
             "5 hr"
           ],
-          "default": "3 hr"
+          "default": "3 hr",
+          "isContainEmail": false
         },
         "weekly": {
           "label": "Weekly",
@@ -143,7 +158,8 @@
             "24 hr",
             "32 hr"
           ],
-          "default": "16 hr"
+          "default": "16 hr",
+          "isContainEmail": false
         },
         "monthly": {
           "label": "Monthly",
@@ -154,7 +170,8 @@
             "35 hr",
             "40 hr"
           ],
-          "default": "35 hr"
+          "default": "35 hr",
+          "isContainEmail": false
         }
       }
     },
@@ -164,25 +181,29 @@
         "subLabel": "",
         "highlighted": "false",
         "emails": {
-          "label":"Email",
-          "subLabel":"",
-          "option":["abc@gmail.com","hello@gmail.com"],
-          "default":""
+          "label": "Email",
+          "subLabel": "",
+          "option": [
+            "abc@gmail.com"
+          ],
+          "default": "",
+          "isContainEmail": true
         }
       },
       "reports": {
         "label": "REPORTS",
         "subLabel": "",
+        "highlighted": "false",
         "machineRelocation": {
           "label": "Machine Relocated",
           "subLabel": "Triggered if the machine reported a location that is outside the set radius of its home location. № Alert Radius(1 mile = 1.6 km)",
-          "highlighted": "false",
           "option": [
             "Weekly",
             "Monthly",
             "Quarterly"
           ],
-          "default": "Weekly"
+          "default": "Monthly",
+          "isContainEmail": false
         },
         "noCommunication": {
           "label": "No Communication",
@@ -192,7 +213,8 @@
             "Monthly",
             "Quarterly"
           ],
-          "default": "Monthly"
+          "default": "Weekly",
+          "isContainEmail": false
         }
       }
     }
